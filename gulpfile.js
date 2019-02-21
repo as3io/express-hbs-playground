@@ -27,7 +27,7 @@ const lint = () => src(['src/**/*.js'])
 
 task('default', () => {
   watch(
-    ['src/**/*.js'],
+    ['src/**/*.js', 'src/**/*.hbs'],
     { queue: false, ignoreInitial: false },
     parallel([serve, lint]),
   );
