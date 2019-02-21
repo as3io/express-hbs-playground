@@ -1,6 +1,6 @@
 const express = require('express');
-const hbs = require('express-hbs');
 const helmet = require('helmet');
+const hbs = require('./hbs');
 const routes = require('./routes');
 
 const app = express();
