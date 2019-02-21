@@ -9,6 +9,7 @@ app.set('trust proxy', 'loopback, linklocal, uniquelocal');
 app.use(helmet());
 
 app.engine('hbs', hbs.express4({
+  defaultLayout: `${__dirname}/views/layouts/default`,
   partialsDir: `${__dirname}/views/partials`,
 }));
 app.set('view engine', 'hbs');
