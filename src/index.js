@@ -22,7 +22,11 @@ const run = async () => {
     onShutdown: () => log('> Cleanup finished. Shutting down.'),
   });
 
-  server.listen(INTERNAL_PORT, () => log(`> Ready on http://0.0.0.0:${EXTERNAL_PORT}`));
+  server.listen(INTERNAL_PORT, () => {
+    log(`> Ready on http://0.0.0.0:${EXTERNAL_PORT}`);
+    // Emit ready message to parent process (if applicable). For use with livereload in development.
+    if (process.send) process.send('ready');
+  });
 };
 
 process.on('unhandledRejection', (e) => {
