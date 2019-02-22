@@ -1,10 +1,13 @@
+{{#content-for "head"}}
+  <title>Section Title</title>
+{{/content-for}}
+
 <h1>{{title}}</h1>
 <h2>Section: {{alias}}</h2>
 <hr>
-<p>Block #1 delay for {{delay 250}}ms</p>
-<p>Block #2 delay for {{delay 350}}ms</p>
-<p>Block #3 delay for {{delay 100}}ms</p>
-<p>Block #4 delay for {{delay 500}}ms</p>
+{{#each times as |time index|}}
+  <p>Block #{{index}} delay for {{delay time}}ms</p>
+{{/each}}
 <hr>
-<p>This page should <strong>not</strong> take 1200ms to load...</p>
-<p>It <em>should</em> be a bit over 500ms.</p>
+<p>If sync, this would take ~{{totalTime}}ms load</p>
+<p>However, it should take ~{{expectedTime}}ms to load.</p>
