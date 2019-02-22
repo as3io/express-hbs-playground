@@ -1,6 +1,7 @@
 const express = require('express');
 const helmet = require('helmet');
 const hbs = require('./hbs');
+const registerHelpers = require('./hbs/helpers');
 const routes = require('./routes');
 
 const app = express();
@@ -8,6 +9,7 @@ app.set('trust proxy', 'loopback, linklocal, uniquelocal');
 
 app.use(helmet());
 
+registerHelpers(hbs);
 app.engine('hbs', hbs.express4({
   defaultLayout: `${__dirname}/views/layouts/default`,
   partialsDir: `${__dirname}/views/partials`,
