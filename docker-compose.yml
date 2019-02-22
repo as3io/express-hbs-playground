@@ -28,11 +28,13 @@ services:
     environment:
       YARN_CACHE_FOLDER: /.yarn-cache
       NODE_ENV: development
-      INTERNAL_PORT: 80
-      EXTERNAL_PORT: 10601
+      INTERNAL_PORT: ${INTERNAL_PORT-80}
+      EXTERNAL_PORT: ${EXTERNAL_PORT-10601}
+      LIVERELOAD_PORT: ${LIVERELOAD_PORT-10602}
       DEBUG: ${DEBUG-""}
     ports:
-      - "10601:80"
+      - "${EXTERNAL_PORT-10601}:${INTERNAL_PORT-80}"
+      - "${LIVERELOAD_PORT-10602}:${LIVERELOAD_PORT-10602}"
 
 volumes:
   yarn-cache: {}
