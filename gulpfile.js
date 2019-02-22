@@ -12,9 +12,10 @@ const socketio = require('socket.io');
 
 const { log } = console;
 
-const { LIVERELOAD_PORT } = process.env;
+process.env.LIVERELOAD_PATH = '/_lr';
+const { LIVERELOAD_PORT, LIVERELOAD_PATH } = process.env;
 const server = http.createServer();
-const io = socketio(server, { path: '/_lr' });
+const io = socketio(server, { path: LIVERELOAD_PATH });
 server.listen(LIVERELOAD_PORT);
 
 io.on('connection', () => log('> Web browser connected to livereload.'));
