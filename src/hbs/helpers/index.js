@@ -6,6 +6,7 @@ const livereload = require('./livereload');
 const log = require('./log');
 const lt = require('./lt');
 const lte = require('./lte');
+const placeholderAd = require('./placeholder-ad');
 const replace = require('./replace');
 
 module.exports = (hbs) => {
@@ -18,5 +19,6 @@ module.exports = (hbs) => {
   hbs.registerHelper('log', log);
   hbs.registerHelper('lt', lt);
   hbs.registerHelper('lte', lte);
+  hbs.registerHelper('placeholder-ad', placeholderAd);
   hbs.registerHelper('replace', replace);
 };
