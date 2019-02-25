@@ -1,5 +1,5 @@
 const section = require('./section');
 
 module.exports = (app) => {
-  app.use('/section', section);
+  app.use('/', section);
 };

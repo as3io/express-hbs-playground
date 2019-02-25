@@ -14,11 +14,11 @@ app.use(helmet());
 registerHelpers(hbs);
 app.engine('hbs', hbs.express4({
   contentHelperName: 'content-for',
-  defaultLayout: `${__dirname}/views/_document`,
-  partialsDir: `${__dirname}/views/partials`,
+  defaultLayout: `${__dirname}/site/pages/_document`,
+  partialsDir: `${__dirname}/site/partials`,
 }));
 app.set('view engine', 'hbs');
-app.set('views', `${__dirname}/views`);
+app.set('views', `${__dirname}/site/pages`);
 
 app.get('/', (req, res) => {
   res.json({ ping: 'pong' });

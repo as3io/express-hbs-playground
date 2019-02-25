@@ -1,0 +1,22 @@
+{{#content-for "head"}}
+  <title>Section Title</title>
+{{/content-for}}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col my-3" style="padding-left:6rem; padding-right:6rem;">
+      <section
+        data-id="{{section.id}}"
+        class="website-section website-section--display website-section--{{replace section.alias "/" "-"}}"
+      >
+        <h1 class="website-section__name">{{section.name}}</h1>
+        <p class="website-section__description">{{section.description}}</p>
+        <hr>
+
+        <div class="row">
+
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
