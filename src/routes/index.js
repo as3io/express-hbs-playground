@@ -1,5 +1,7 @@
 const section = require('./section');
+const home = require('./home');
 
 module.exports = (app) => {
-  app.use('/', section);
+  app.use('/', home);
+  app.use('/:alias(*)', section);
 };

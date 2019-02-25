@@ -20,10 +20,6 @@ app.engine('hbs', hbs.express4({
 app.set('view engine', 'hbs');
 app.set('views', `${__dirname}/site/pages`);
 
-app.get('/', (req, res) => {
-  res.json({ ping: 'pong' });
-});
-
 routes(app);
 
 module.exports = app;

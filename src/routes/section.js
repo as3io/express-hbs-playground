@@ -1,4 +1,3 @@
-const { Router } = require('express');
 const gql = require('graphql-tag');
 const createError = require('http-errors');
 const asyncRoute = require('../utils/async-route');
@@ -25,9 +24,7 @@ const buildQuery = ({ fragment } = {}) => {
   `;
 };
 
-const router = Router();
-
-router.get('/:alias(*)', asyncRoute(async (req, res) => {
+module.exports = asyncRoute(async (req, res) => {
   const { alias } = req.params;
   const { apollo } = req;
 
@@ -63,6 +60,4 @@ router.get('/:alias(*)', asyncRoute(async (req, res) => {
 
   // No website section or redirect was found for this alias. Return a 404.
   throw createError(404, `No website section was found for alias '${alias}'`);
-}));
-
-module.exports = router;
+});
