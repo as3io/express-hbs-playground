@@ -2,12 +2,7 @@
   <title>Section Title</title>
 {{/content-for}}
 
-<h1>{{title}}</h1>
-<h2>Section: {{alias}}</h2>
-<hr>
-{{#each times as |time index|}}
-  <p>Block #{{index}} delay for {{delay time}}ms</p>
-{{/each}}
-<hr>
-<p>If sync, this would take ~{{totalTime}}ms load</p>
-<p>However, it should take ~{{expectedTime}}ms to load.</p>
+<section data-id="{{section.id}}" class="website-section website-section--display website-section--{{replace section.alias "/" "-"}}">
+  <h1>{{section.name}}</h1>
+  <div>{{section.description}}</div>
+</section>
