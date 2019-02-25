@@ -1,5 +1,6 @@
 const express = require('express');
 const helmet = require('helmet');
+const { apolloClient } = require('./apollo');
 const hbs = require('./hbs');
 const registerHelpers = require('./hbs/helpers');
 const routes = require('./routes');
@@ -7,6 +8,7 @@ const routes = require('./routes');
 const app = express();
 app.set('trust proxy', 'loopback, linklocal, uniquelocal');
 
+app.use(apolloClient());
 app.use(helmet());
 
 registerHelpers(hbs);
