@@ -6,11 +6,10 @@ const livereload = require('./livereload');
 const log = require('./log');
 const lt = require('./lt');
 const lte = require('./lte');
-const parentBlock = require('./parent-block');
+const replace = require('./replace');
 
 module.exports = (hbs) => {
   hbs.registerAsyncHelper('delay', delay);
-  hbs.registerAsyncHelper('parent-block', parentBlock);
 
   hbs.registerHelper('eq', eq);
   hbs.registerHelper('gt', gt);
@@ -19,4 +18,5 @@ module.exports = (hbs) => {
   hbs.registerHelper('log', log);
   hbs.registerHelper('lt', lt);
   hbs.registerHelper('lte', lte);
+  hbs.registerHelper('replace', replace);
 };
