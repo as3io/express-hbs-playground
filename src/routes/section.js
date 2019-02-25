@@ -5,6 +5,7 @@ const asyncRoute = require('../utils/async-route');
 const defaultFragment = require('../gql/fragments/with-website-section');
 const extractFragmentData = require('../utils/extract-fragment-data');
 const sectionPath = require('../utils/section-path');
+const site = require('../site/config');
 
 const buildQuery = ({ fragment } = {}) => {
   const { spreadFragmentName, processedFragment } = extractFragmentData({ fragment });
@@ -45,7 +46,12 @@ router.get('/:alias(*)', asyncRoute(async (req, res) => {
   if (websiteSectionAlias) {
     // The website section was found. Return it along with the canonical path.
     const canonicalPath = sectionPath(alias);
-    return res.render('section', { section: websiteSectionAlias, canonicalPath });
+    return res.render('section', {
+      section: websiteSectionAlias,
+      canonicalPath,
+      site,
+      requestOrigin: `${req.protocol}://${req.get('host')}`,
+    });
   }
 
   if (websiteSectionRedirect && websiteSectionRedirect.alias) {

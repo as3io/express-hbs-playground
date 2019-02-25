@@ -1,5 +1,7 @@
 {{#content-for "head"}}
-  <title>Section Title</title>
+  <title>{{section.metadata.title}} | {{site.name}}</title>
+  <meta name="description" content="{{section.metadata.description}}">
+  <link rel="canonical" href="{{requestOrigin}}{{canonicalPath}}">
 {{/content-for}}
 
 <div class="container-fluid">
