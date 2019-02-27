@@ -2,6 +2,6 @@ const section = require('./section');
 const home = require('./home');
 
 module.exports = (app) => {
-  app.use('/', home);
-  app.use('/:alias(*)', section);
+  app.get('/', home);
+  app.get('/:alias(*)', section);
 };

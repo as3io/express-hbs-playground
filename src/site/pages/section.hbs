@@ -21,9 +21,24 @@
         <p class="website-section__description">{{section.description}}</p>
         <hr>
 
-        <div class="row">
-
-        </div>
+        {{#website-schedule-query
+          sectionId=section.id
+          limit=18
+          as |items|
+        }}
+          <div class="row">
+            {{#each items as |item|}}
+              <div class="mb-3 col-12 col-lg-6 col-xl-4">
+                <div class="card h-100">
+                  <div class="card-body">
+                    <h4>{{item.shortName}}</h4>
+                    <div class="card-text">{{item.teaser}}</div>
+                  </div>
+                </div>
+              </div>
+            {{/each}}
+          </div>
+        {{/website-schedule-query}}
       </section>
     </div>
   </div>

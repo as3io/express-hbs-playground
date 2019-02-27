@@ -4,9 +4,22 @@
       <a class="navbar-brand ml-2" href="/">
         <img src="{{site.logo}}" title="{{site.name}}" alt="{{site.name}}" height="25">
       </a>
+      <ul class="navbar-nav small align-self-center">
+        {{!-- @todo These utilize a section link helper to properly generate the path name and determine active link --}}
+        {{#each site.secondaryNavItems as |item|}}
+          <li class="nav-item">
+            <a class="nav-link" href="{{item.to}}">{{item.label}}</a>
+          </li>
+        {{/each}}
+      </ul>
     </div>
     <ul class="navbar-nav">
-
+      {{!-- @todo These utilize a section link helper to properly generate the path name and determine active link --}}
+      {{#each site.primaryNavItems as |item|}}
+        <li class="nav-item">
+          <a class="nav-link" href="{{item.to}}">{{item.label}}</a>
+        </li>
+      {{/each}}
     </ul>
   </div>
 </nav>

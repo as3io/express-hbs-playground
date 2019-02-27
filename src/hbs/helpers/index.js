@@ -8,9 +8,11 @@ const lt = require('./lt');
 const lte = require('./lte');
 const placeholderAd = require('./placeholder-ad');
 const replace = require('./replace');
+const websiteScheduleQuery = require('./website-schedule-query');
 
 module.exports = (hbs) => {
   hbs.registerAsyncHelper('delay', delay);
+  hbs.registerAsyncHelper('website-schedule-query', websiteScheduleQuery);
 
   hbs.registerHelper('eq', eq);
   hbs.registerHelper('gt', gt);
